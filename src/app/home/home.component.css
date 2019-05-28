@@ -1,0 +1,55 @@
+.city-tile {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 330px;
+    margin: 25px 30px;
+}
+
+.city-tile .card-inner {
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    width: 100%; 
+}
+
+.city-tile .card-body {
+    background-color: #fff;
+    color: #000;
+}
+
+.city-tile .card-img-top {
+    border-radius: 0;
+}
+
+.city-tile:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-flip-front, .card-flip-back {
+    backface-visibility: hidden;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.card-flip-back i {
+    font-size: 1.75rem;
+}
+
+.card-flip-back {
+    background-color: #1281ac;
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0;
+    transform: rotateY(180deg);
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .city-tile {
+        margin: 0;
+    }
+}

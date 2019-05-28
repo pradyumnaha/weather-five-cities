@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col text-white">
+      <h1><i class="fas fa-city"></i> {{this.selectedCityDetails.cityName}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+        <div class="card weather-details-card">
+            <div class="card-header">
+              Current Conditions
+            </div>
+            <div class="card-body">
+              <div class="container">
+                <div class="row mb-2">
+                  <div class="col">
+                    <span class="card-title h1">{{this.selectedCityWeatherList[0].main.temp | kelvinToCelcius}}&#8451;</span>
+                  </div>
+                  <div class="col">
+                    <div class="row">
+                      <div class="col">
+                          <img class="mr-2" src="http://openweathermap.org/img/w/{{this.selectedCityWeatherList[0].weather[0].icon}}.png" />
+                      </div>
+                      <div class="col">
+                          <span class="weather-description">{{this.selectedCityWeatherList[0].weather[0].description}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3 pt-2 pb-2 border-top border-bottom">
+                  <div class="col">
+                    Max. Temp.
+                    <h5>{{this.selectedCityWeatherList[0].main.temp_max | kelvinToCelcius}} &#8451;</h5>
+                  </div>
+                  <div class="col">
+                    Min. Temp.
+                    <h5>{{this.selectedCityWeatherList[0].main.temp_min | kelvinToCelcius}} &#8451;</h5>
+                  </div>
+                  <div class="col">
+                    Wind Speed
+                    <h5>{{this.selectedCityWeatherList[0].wind.speed | mtrPersecToKmPerhr}} km/h</h5>
+                  </div>
+                </div>
+                <div class="row mt-2 mb-2" *ngFor="let nextDay of nextThreeDaysWeather">
+                  <div class="col">
+                    <h5>{{nextDay.dt_txt | date:'EE dd/MM'}}</h5>
+                  </div>
+                  <div class="col">
+                      <img src="http://openweathermap.org/img/w/{{nextDay.weather[0].icon}}.png" />
+                  </div>
+                  <div class="col">
+                    <h4>{{nextDay.main.temp | kelvinToCelcius}}&#8451;</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card weather-details-card">
+            <div class="card-header">
+                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                    <label class="btn btn-secondary btn-sm btnWind active" (click) = "onWindClick()">
+                      <input type="radio" name="options" checked> Wind
+                    </label>
+                    <label class="btn btn-secondary btn-sm btnTemp" (click) = "onTempClick()">
+                      <input type="radio" name="options"> Temperature
+                    </label>
+                  </div>
+              Next 24hrs Forecast
+          </div>
+            <div class="card-body">
+              <div [hidden]="hideWindChart">
+                <canvas class="windChart" id="windBarChart" ></canvas>
+              </div>
+              <div [hidden]="hideTempChart">
+                <canvas class="tempChart" id="tempLineChart" ></canvas>
+              </div>
+              
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

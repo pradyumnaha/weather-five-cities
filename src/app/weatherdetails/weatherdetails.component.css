@@ -1,0 +1,36 @@
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2rem; 
+        text-align: center;
+    }
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 767px) {
+    .weather-details-card {
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 2rem; 
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .weather-details-card {
+        max-height: 400px;
+        overflow-y: scroll; 
+    }
+}
+
+@media (min-width: 1199px) {
+    .weather-description {
+        display: inline-block;
+        margin-top: 14px;
+    }
+}

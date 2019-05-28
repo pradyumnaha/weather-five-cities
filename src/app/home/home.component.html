@@ -1,0 +1,38 @@
+<div class="alert alert-danger" role="alert" [hidden] ="!apiCallFailed">
+  Error: API call to server failed.
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let city of cities; let i = index">
+        <div class="card city-tile" (click)="onClickCity(i)">
+          <div class="card-inner">
+            <div class="card-flip-front">
+                <img src={{city?.cityImg}} class="card-img-top" alt="City Image">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">{{city?.cityName}}</h3>
+                    <img src="http://openweathermap.org/img/w/{{city?.cityWeather?.list[0]?.weather[0]?.icon}}.png" />
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <h6>Avg. Temp.</h6>
+                    <span>{{city?.cityWeather?.list[0]?.main?.temp | kelvinToCelcius}} &#8451;</span>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <h6>Wind strength</h6>
+                    <span>{{city?.cityWeather?.list[0]?.wind?.speed | mtrPersecToKmPerhr}} km/h</span>
+                  </div>
+                </div>
+            </div>
+            <div class="card-flip-back row align-items-center">
+                <div class="col text-center">
+                  <p>Latitude: {{city?.cityWeather?.city?.coord.lat}}</p>
+                  <p>Longitude: {{city?.cityWeather?.city?.coord.lon}}</p>
+                  <p>Country code: {{city?.countryCd}}</p>
+                  <i class="fas fa-cloud-moon-rain"></i> Click here for more weather information
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -17,10 +17,16 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test --code-coverage` to see the coverage
 
-## Running end-to-end tests
+## Built With
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Angular 7, Typescript, Javascript, Bootstrap 4, HTML5, CSS3, RxJS, Jasmine+Karma
+2. Main features of Angular 7 used in this project: Components, directives (structural directives), routing, pipes(built-in and custom), services, model, behavioursubject, HttpClient
+3. CSS3 animations
+
+## API
+https://openweathermap.org/current
 
 ## Further help
 

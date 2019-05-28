@@ -1,0 +1,29 @@
+.navbar {
+    background: #302f2b;
+    color: #fff;
+}
+
+.navbar-brand span {
+    font-size: 1.5rem;
+}
+
+.logo-img {
+    margin-top: -10px;
+}
+
+.btn-home {
+    background-color: #1281ac;
+    border-color: #1281ac;
+    color: #fff;
+}
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+    .navbar-brand span {
+        font-size: 1.125rem;
+    }
+    .home-button-text {
+        display: none;
+    }
+}
